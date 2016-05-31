@@ -82,14 +82,14 @@ class OXGame {
         
         //check for winner in rows
         for i in 0...2 {
-            if (board[3*i] == board[3*i+1]) && board[3*i+1] == board[3*i+2] && board[3*i] != CellType.EMPTY {
+            if (board[3*i] == board[3*i+1]) && (board[3*i+1] == board[3*i+2]) && board[3*i] != CellType.EMPTY {
                 return true
             }
         }
         
         //check for winner in columns
         for i in 0...2 {
-            if board[i] == board[i+3] && board[i+3]==board[i+6] && board[i] != CellType.EMPTY {
+            if (board[i] == board[i+3]) && (board[i+3]==board[i+6]) && board[i] != CellType.EMPTY {
                 return true
             }
         }
@@ -100,7 +100,7 @@ class OXGame {
         }
         
         //check for winner in left diagonal
-        if board[2] == board[4] && board[4] == board[6] && board[3] != CellType.EMPTY {
+        if board[2] == board[4] && board[4] == board[6] && board[2] != CellType.EMPTY {
             return true
         }
         

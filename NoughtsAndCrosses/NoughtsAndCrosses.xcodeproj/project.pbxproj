@@ -13,6 +13,13 @@
 		42D447E31CD765680070326E /* NoughtsAndCrossesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447E21CD765680070326E /* NoughtsAndCrossesTests.swift */; };
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
 		DCD99CC11CFD746200E95DCA /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD99CC01CFD746200E95DCA /* OXGame.swift */; };
+		DCF8C5221CFE339900005654 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8C5201CFE339900005654 /* LandingViewController.swift */; };
+		DCF8C5231CFE339900005654 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF8C5211CFE339900005654 /* LandingViewController.xib */; };
+		DCF8C5261CFE354200005654 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8C5241CFE354200005654 /* LoginViewController.swift */; };
+		DCF8C5271CFE354200005654 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF8C5251CFE354200005654 /* LoginViewController.xib */; };
+		DCF8C52A1CFE355C00005654 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8C5281CFE355C00005654 /* RegistrationViewController.swift */; };
+		DCF8C52B1CFE355C00005654 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF8C5291CFE355C00005654 /* RegistrationViewController.xib */; };
+		DCF8C52D1CFE37FC00005654 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8C52C1CFE37FC00005654 /* UserController.swift */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -47,6 +54,13 @@
 		42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesUITests.swift; sourceTree = "<group>"; };
 		42D447EF1CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCD99CC01CFD746200E95DCA /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
+		DCF8C5201CFE339900005654 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		DCF8C5211CFE339900005654 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
+		DCF8C5241CFE354200005654 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DCF8C5251CFE354200005654 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		DCF8C5281CFE355C00005654 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		DCF8C5291CFE355C00005654 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		DCF8C52C1CFE37FC00005654 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,7 +101,7 @@
 		42D447C11CD765670070326E = {
 			isa = PBXGroup;
 			children = (
-				42D447CC1CD765670070326E /* NoughtsAndCrosses */,
+				42D447CC1CD765670070326E /* oXGameByLauren */,
 				42D447E11CD765680070326E /* NoughtsAndCrossesTests */,
 				42D447EC1CD765680070326E /* NoughtsAndCrossesUITests */,
 				42D447CB1CD765670070326E /* Products */,
@@ -104,17 +118,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
+		42D447CC1CD765670070326E /* oXGameByLauren */ = {
 			isa = PBXGroup;
 			children = (
+				DCF8C51F1CFE337500005654 /* Authorization */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
-				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
-				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
+				DCF8C52E1CFE3B0000005654 /* Game */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
+				DCF8C52C1CFE37FC00005654 /* UserController.swift */,
 				427A5B651CE0FF4A00328EE7 /* Model */,
 			);
+			name = oXGameByLauren;
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
 		};
@@ -134,6 +150,28 @@
 				42D447EF1CD765680070326E /* Info.plist */,
 			);
 			path = NoughtsAndCrossesUITests;
+			sourceTree = "<group>";
+		};
+		DCF8C51F1CFE337500005654 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				DCF8C5201CFE339900005654 /* LandingViewController.swift */,
+				DCF8C5211CFE339900005654 /* LandingViewController.xib */,
+				DCF8C5241CFE354200005654 /* LoginViewController.swift */,
+				DCF8C5251CFE354200005654 /* LoginViewController.xib */,
+				DCF8C5281CFE355C00005654 /* RegistrationViewController.swift */,
+				DCF8C5291CFE355C00005654 /* RegistrationViewController.xib */,
+			);
+			name = Authorization;
+			sourceTree = "<group>";
+		};
+		DCF8C52E1CFE3B0000005654 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
+				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
+			);
+			name = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,8 +278,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF8C5271CFE354200005654 /* LoginViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
+				DCF8C52B1CFE355C00005654 /* RegistrationViewController.xib in Resources */,
+				DCF8C5231CFE339900005654 /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,8 +308,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF8C52A1CFE355C00005654 /* RegistrationViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				DCD99CC11CFD746200E95DCA /* OXGame.swift in Sources */,
+				DCF8C5221CFE339900005654 /* LandingViewController.swift in Sources */,
+				DCF8C52D1CFE37FC00005654 /* UserController.swift in Sources */,
+				DCF8C5261CFE354200005654 /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

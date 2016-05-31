@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var onboardingNavigationController:UINavigationController?
-    var loggedInNavigationController:UINavigationController?
     var navigationController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -22,18 +21,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
         onboardingNavigationController = UINavigationController(rootViewController: landingViewController)
         
-        
         let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
         self.navigationController = UINavigationController(rootViewController: boardViewController)
         self.navigationController?.navigationBarHidden = true
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
+        self.window?.rootViewController = self.onboardingNavigationController
         self.window?.makeKeyAndVisible()
         
         
         
         return true
+    }
+    
+    func navigateToBoardViewController() {
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.navigationController
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func navigateToOnboardingViewController () {
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.onboardingNavigationController
+        self.window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(application: UIApplication) {

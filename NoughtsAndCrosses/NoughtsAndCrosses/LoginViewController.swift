@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
         
         if user != nil {
             print("User logged in, view login view")
-            appDelegate.navigateToLoggedInNavigationController()
+            appDelegate.navigateToBoardViewController()
         } else {
             if failure_message != nil {
                 print(failure_message)

@@ -121,9 +121,9 @@
 		42D447CC1CD765670070326E /* oXGameByLauren */ = {
 			isa = PBXGroup;
 			children = (
+				DCF8C52E1CFE3B0000005654 /* Game */,
 				DCF8C51F1CFE337500005654 /* Authorization */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
-				DCF8C52E1CFE3B0000005654 /* Game */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,

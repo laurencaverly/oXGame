@@ -24,10 +24,18 @@ class LandingViewController: UIViewController {
     
     @IBAction func loginButtonTapped(sender: UIButton) {
         print("Login button tapped")
+        
+        let lvc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        
+        self.navigationController?.pushViewController(lvc, animated: true)
     }
 
     @IBAction func registerButtonTapped(sender: UIButton) {
         print("Register button tapped")
+        
+        let rvc = RegistrationViewController(nibName: "RegistrationViewController", bundle: nil)
+        
+        self.navigationController?.pushViewController(rvc, animated: true)
     }
     
 

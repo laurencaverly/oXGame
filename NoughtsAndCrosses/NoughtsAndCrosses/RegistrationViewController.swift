@@ -9,9 +9,16 @@
 import UIKit
 
 class RegistrationViewController: UIViewController {
+    
+    @IBOutlet weak var registrationEmailField: UITextField!
+    
+    @IBOutlet weak var registrationPasswordField: UITextField!
 
+    @IBOutlet weak var registrationErrorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Registration"
 
         // Do any additional setup after loading the view.
     }
@@ -21,15 +28,24 @@ class RegistrationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func registerButtonTapped(sender: UIButton) {
+        print("Register button tapped")
+        
+        let registrationEmail = registrationEmailField.text
+        let registrationPassword = registrationPasswordField.text
+        
+        let (failure_message, user) = UserController.sharedInstance.registerUser(registrationEmail!, newPassword: registrationPassword!)
+        
+        if user != nil {
+            print("User registered, view registration view")
+        } else {
+            if failure_message != nil {
+                print(failure_message)
+                registrationErrorLabel.text = failure_message
+            }
+        }
+        
     }
-    */
+
 
 }

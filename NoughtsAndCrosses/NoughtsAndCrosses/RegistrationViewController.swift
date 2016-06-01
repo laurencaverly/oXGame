@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var registrationEmailField: UITextField!
+    @IBOutlet weak var registrationEmailField: EmaiValidatedTextField!
     
     @IBOutlet weak var registrationPasswordField: UITextField!
 
@@ -21,6 +21,8 @@ class RegistrationViewController: UIViewController {
         self.title = "Registration"
 
         // Do any additional setup after loading the view.
+        registrationEmailField.delegate = self
+        registrationPasswordField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,8 +38,14 @@ class RegistrationViewController: UIViewController {
         
         let (failure_message, user) = UserController.sharedInstance.registerUser(registrationEmail!, newPassword: registrationPassword!)
         
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
         if user != nil {
-            print("User registered, view registration view")
+            if registrationEmailField.validate() {
+                print("User registered, view registration view")
+            } else {
+                return
+            }
         } else {
             if failure_message != nil {
                 print(failure_message)
@@ -45,6 +53,20 @@ class RegistrationViewController: UIViewController {
             }
         }
         
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == registrationEmailField {
+            print("Email textField text is \(registrationEmailField.text!)")
+            print("String is \(string)")
+        } else {
+            print ("Password textField text is \(registrationPasswordField.text!)")
+            print("String is \(string)")
+        }
+        
+        
+        return true
     }
 
 

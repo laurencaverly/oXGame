@@ -8,11 +8,11 @@
 
 import UIKit
 
-class BoardViewController: UIViewController {
+class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var gameObject = OXGame()
     
-    @IBOutlet var boardView: UIView!
+    @IBOutlet weak var boardView: UIView!
     
     
     @IBOutlet weak var button0: UIButton!
@@ -27,6 +27,21 @@ class BoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.userInteractionEnabled = true
+        
+        
+        //Rotation
+        
+        //create an instance of UIRotationGestureRecognizer
+        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
+        
+        self.boardView.addGestureRecognizer(rotation)
+        
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
+        
+        self.boardView.addGestureRecognizer(pinch)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,16 +66,16 @@ class BoardViewController: UIViewController {
             winner = "Computer"
         }
         
-        if gameState == OXGameState.complete_someone_won {
+        if gameState == OXGameState.complete_someone_won || gameState == OXGameState.complete_no_one_won {
             
             print("\(winner) wins!")
             
-            self.resetGame()
-        } else if gameState == OXGameState.complete_no_one_won {
+            let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 1 * Int64(NSEC_PER_SEC))
+            dispatch_after(time, dispatch_get_main_queue()) {
+                
+                self.resetGame()
+            }
             
-            print("\(winner) wins!")
-            
-            self.resetGame()
         }
     }
     
@@ -89,6 +104,26 @@ class BoardViewController: UIViewController {
         
     }
     
+    func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
+        
+        self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
+        
+        //Rotation ends
+        print("rotation detected")
+        if sender!.state == UIGestureRecognizerState.Ended {
+            print("rotation \(sender!.rotation)")
+            
+            if sender!.rotation < CGFloat(M_PI)/4 {
+                
+                //snap action
+                UIView.animateWithDuration(NSTimeInterval(3), animations: {})
+                self.boardView.transform = CGAffineTransformMakeRotation(0)
+            }
+        }
+    }
     
+    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
+        print("pinch detected")
+        }
 
 }

@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var onboardingNavigationController:UINavigationController?
     var navigationController: UINavigationController?
+    var easterEggViewController: UINavigationController?
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -25,10 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.navigationController = UINavigationController(rootViewController: boardViewController)
         self.navigationController?.navigationBarHidden = true
         
+        
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = self.onboardingNavigationController
         self.window?.makeKeyAndVisible()
         
+        EasterEggController.sharedInstance.initiate(self.window!)
         
         return true
     }
@@ -43,6 +48,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = self.onboardingNavigationController
         self.window?.makeKeyAndVisible()
+    }
+    
+    func navigateToEasterEggScreen() {
+       
+        self.window?.rootViewController = self.easterEggViewController
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {

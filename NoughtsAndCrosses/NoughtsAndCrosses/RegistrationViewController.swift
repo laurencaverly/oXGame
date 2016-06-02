@@ -37,8 +37,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         let registrationPassword = registrationPasswordField.text
         
         let (failure_message, user) = UserController.sharedInstance.registerUser(registrationEmail!, newPassword: registrationPassword!)
-        
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+       
         
         if user != nil {
             if registrationEmailField.validate() {

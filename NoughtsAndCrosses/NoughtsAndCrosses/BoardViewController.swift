@@ -38,6 +38,10 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         
         self.boardView.addGestureRecognizer(rotation)
         
+        
+        //Pinch
+        
+        
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
         
         self.boardView.addGestureRecognizer(pinch)
@@ -113,11 +117,30 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         if sender!.state == UIGestureRecognizerState.Ended {
             print("rotation \(sender!.rotation)")
             
-            if sender!.rotation < CGFloat(M_PI)/4 {
+            if sender!.rotation < CGFloat(M_PI)/2 {
                 
                 //snap action
                 UIView.animateWithDuration(NSTimeInterval(3), animations: {})
                 self.boardView.transform = CGAffineTransformMakeRotation(0)
+                
+            } else if sender!.rotation < CGFloat(M_PI) {
+                
+                //snap action
+                UIView.animateWithDuration(NSTimeInterval(3), animations: {})
+                self.boardView.transform = CGAffineTransformMakeRotation(0.5)
+                
+            } else if sender!.rotation < CGFloat(M_PI)*3/4 {
+                
+                //snap action
+                UIView.animateWithDuration(NSTimeInterval(3), animations: {})
+                self.boardView.transform = CGAffineTransformMakeRotation(1)
+                
+            } else {
+                
+                //snap action
+                UIView.animateWithDuration(NSTimeInterval(3), animations: {})
+                self.boardView.transform = CGAffineTransformMakeRotation(1.5)
+                
             }
         }
     }
